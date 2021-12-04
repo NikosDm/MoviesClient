@@ -10,9 +10,9 @@
   <pagination
     [boundaryLinks]="true"
     [maxSize]="1"
-    [totalItems]="pagination.total_results"
+    [totalItems]="paginationResult.total_results"
     [itemsPerPage]="paginationResult.results.length"
-    [(ngModel)]="pagination.page"
+    [(ngModel)]="paginationResult.page"
     (pageChanged)="pageChanged($event)"
     previousText="&lsaquo;"
     nextText="&rsaquo;"

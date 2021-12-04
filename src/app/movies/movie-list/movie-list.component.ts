@@ -15,13 +15,10 @@ export class MovieListComponent implements OnInit {
   constructor(private movieService: MovieService) {}
 
   ngOnInit(): void {
-    // this.movieService.getMovies().subscribe((response) => {
-    //   debugger;
-    //   this.movies = response.results;
-    //   delete response.results;
-    //   this.pagination = response;
-    // });
-    this.paginationResult = this.movieService.getMovies().default;
+    this.movieService.getMovies().subscribe((response) => {
+      this.paginationResult = response;
+      debugger;
+    });
   }
 
   selectMovie(movieId: Number) {
