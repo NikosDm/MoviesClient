@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <div class="row">
+    <div
+      class="
+        col-md-3 col-lg-2
+        d-md-block
+        bg-light
+        sidebar
+        collapse
+        sidebar-sticky
+        pt-3
+      "
+    >
+      <app-movie-list
+        (selectedMovie)="handleMovieSelection($event)"
+      ></app-movie-list>
+    </div>
+    <div class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+      <app-movie-details [selectedMovie]="selectedMovie"></app-movie-details>
+    </div>
+  </div>
+</div>

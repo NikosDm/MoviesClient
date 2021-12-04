@@ -1,0 +1,23 @@
+<ul class="nav flex-column" *ngIf="paginationResult">
+  <li class="nav-item" *ngFor="let movie of paginationResult.results">
+    <a class="nav-link active" (click)="selectMovie(movie.id)">
+      {{ movie.title }} <span class="sr-only">(current)</span>
+    </a>
+  </li>
+</ul>
+
+<div class="d-flex justify-content-center" *ngIf="paginationResult">
+  <pagination
+    [boundaryLinks]="true"
+    [maxSize]="1"
+    [totalItems]="pagination.total_results"
+    [itemsPerPage]="paginationResult.results.length"
+    [(ngModel)]="pagination.page"
+    (pageChanged)="pageChanged($event)"
+    previousText="&lsaquo;"
+    nextText="&rsaquo;"
+    firstText="&laquo;"
+    lastText="&raquo;"
+  >
+  </pagination>
+</div>
