@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { PaginationResult } from '../_models/PaginationResult';
 import { MovieDetails } from '../_models/MovieDetails';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -13,29 +14,19 @@ export class MovieService {
 
   constructor(private http: HttpClient) {}
 
-  getMovies(): any {
-    return this.http.get<PaginationResult>(`${this.baseUrl}discover/movie`, {
-      params: this.getHttpParams(),
-    });
+  getMovies(): Observable<PaginationResult> {
+    return this.http.get<PaginationResult>(
+      `${this.baseUrl}discover/movie?page`
+    );
   }
 
-  getMovie(movieID: Number) {
-    return this.http.get<MovieDetails>(`${this.baseUrl}movie/${movieID}`, {
-      params: this.getHttpParams(),
-    });
+  getMovie(movieID: Number): Observable<MovieDetails> {
+    return this.http.get<MovieDetails>(`${this.baseUrl}movie/${movieID}`);
   }
 
-  searchMovies(query: string) {
-    let params = this.getHttpParams();
-    params = params.append('query', query);
-    return this.http.get<MovieDetails>(`${this.baseUrl}search/movie`, {
-      params: this.getHttpParams(),
-    });
-  }
-
-  private getHttpParams(): HttpParams {
-    let params = new HttpParams();
-    params = params.append('api_key', this.apiKey);
-    return params;
+  searchMovies(query: string): Observable<PaginationResult> {
+    return this.http.get<PaginationResult>(
+      `${this.baseUrl}search/movie?query=${query}`
+    );
   }
 }

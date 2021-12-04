@@ -1,6 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
@@ -10,6 +10,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { MovieDetailsComponent } from './movies/movie-details/movie-details.component';
 import { MovieContainerComponent } from './movies/movie-container/movie-container.component';
 import { MovieListComponent } from './movies/movie-list/movie-list.component';
+import { ApikeyInterceptor } from './_interceptors/apikey.interceptor';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,9 @@ import { MovieListComponent } from './movies/movie-list/movie-list.component';
     NgxSpinnerModule,
     PaginationModule.forRoot(),
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: ApikeyInterceptor, multi: true },
+  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent],
 })
