@@ -14,9 +14,11 @@ export class MovieService {
 
   constructor(private http: HttpClient) {}
 
-  getMovies(): Observable<PaginationResult> {
+  getMovies(page?: Number): Observable<PaginationResult> {
+    if (!page) page = 1;
+
     return this.http.get<PaginationResult>(
-      `${this.baseUrl}discover/movie?page`
+      `${this.baseUrl}discover/movie?page=${page}`
     );
   }
 
@@ -24,9 +26,11 @@ export class MovieService {
     return this.http.get<MovieDetails>(`${this.baseUrl}movie/${movieID}`);
   }
 
-  searchMovies(query: string): Observable<PaginationResult> {
+  searchMovies(query: string, page?: number): Observable<PaginationResult> {
+    if (!page) page = 1;
+
     return this.http.get<PaginationResult>(
-      `${this.baseUrl}search/movie?query=${query}`
+      `${this.baseUrl}search/movie?page=${page}&query=${query}`
     );
   }
 }

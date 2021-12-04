@@ -1,7 +1,7 @@
 <ul class="nav flex-column" *ngIf="paginationResult">
   <li class="nav-item" *ngFor="let movie of paginationResult.results">
-    <a class="nav-link active" (click)="selectMovie(movie.id)">
-      {{ movie.title }} <span class="sr-only">(current)</span>
+    <a class="nav-link active pointer-cursor" (click)="selectMovie(movie.id)">
+      {{ movie.title }}
     </a>
   </li>
 </ul>

@@ -1,5 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
@@ -25,6 +26,7 @@ import { ApikeyInterceptor } from './_interceptors/apikey.interceptor';
     HttpClientModule,
     BrowserAnimationsModule,
     NgxSpinnerModule,
+    FormsModule,
     PaginationModule.forRoot(),
   ],
   providers: [

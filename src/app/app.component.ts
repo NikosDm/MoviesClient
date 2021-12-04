@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'Movies Client';
+  searchQuery: string;
+
+  handleMovieSearch(query: string) {
+    this.searchQuery = query;
+  }
 }

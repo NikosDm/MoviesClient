@@ -2,6 +2,6 @@
   <p class="loading">Loading...</p>
 </ngx-spinner>
 
-<app-navbar></app-navbar>
+<app-navbar (searchQuery)="handleMovieSearch($event)"></app-navbar>
 
-<app-movie-container></app-movie-container>
+<app-movie-container [searchQuery]="searchQuery"></app-movie-container>

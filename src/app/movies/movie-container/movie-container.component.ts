@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-movie-container',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./movie-container.component.css'],
 })
 export class MovieContainerComponent implements OnInit {
+  @Input() searchQuery: string;
   selectedMovie: Number;
 
   constructor() {}
