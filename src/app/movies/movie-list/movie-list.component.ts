@@ -15,7 +15,7 @@ import { MovieService } from 'src/app/_services/movie.service';
   styleUrls: ['./movie-list.component.css'],
 })
 export class MovieListComponent implements OnInit, OnChanges {
-  @Output() selectedMovie = new EventEmitter<any>();
+  @Output() selectedMovieID = new EventEmitter<any>();
   @Input() searchQuery: string;
   paginationResult: PaginationResult;
 
@@ -35,7 +35,7 @@ export class MovieListComponent implements OnInit, OnChanges {
   }
 
   selectMovie(movieId: Number) {
-    this.selectedMovie.emit(movieId);
+    this.selectedMovieID.emit(movieId);
   }
 
   pageChanged(event: any) {

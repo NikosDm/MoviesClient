@@ -7,13 +7,13 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class MovieContainerComponent implements OnInit {
   @Input() searchQuery: string;
-  selectedMovie: Number;
+  selectedMovieID: Number;
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  handleMovieSelection(selectedMovie: Number) {
-    this.selectedMovie = selectedMovie;
+  handleMovieSelection(selectedMovieID: Number) {
+    this.selectedMovieID = selectedMovieID;
   }
 }

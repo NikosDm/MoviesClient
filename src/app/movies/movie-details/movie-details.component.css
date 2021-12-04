@@ -1,0 +1,19 @@
+.movie-title {
+  font-size: 1.5rem;
+}
+
+.movie-genre {
+  border: 2px solid;
+  border-radius: 1rem;
+  box-sizing: border-box;
+  padding: 0.25rem 0.75rem;
+}
+
+.card-body {
+  padding: 0 25px;
+}
+
+.company-logo {
+  width: 80px;
+  margin: 0.5rem;
+}
