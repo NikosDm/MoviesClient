@@ -1,14 +1,25 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-3 col-lg-2 d-md-block bg-light pt-3">
+    <div
+      [ngStyle]="{
+        display: screenWidth < 768 && selectedMovieID ? 'none' : 'block'
+      }"
+      class="col-md-3 col-lg-2 d-md-block bg-light pt-3"
+    >
       <app-movie-list
         (selectedMovieID)="handleMovieSelection($event)"
         [searchQuery]="searchQuery"
       ></app-movie-list>
     </div>
-    <div class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+    <div
+      [ngStyle]="{
+        display: handleMovieDetailsVisibility()
+      }"
+      class="col-md-9 col-lg-10 ml-sm-auto col-lg-10 px-md-4"
+    >
       <app-movie-details
         [selectedMovieID]="selectedMovieID"
+        (backToList)="handleBackToList()"
       ></app-movie-details>
     </div>
   </div>

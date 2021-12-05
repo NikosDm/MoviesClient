@@ -1,3 +1,11 @@
+.pointer-cursor {
+  cursor: pointer;
+}
+
+.secondary-color {
+  color: #716e6a;
+}
+
 .movie-title {
   font-size: 1.5rem;
 }
@@ -35,5 +43,33 @@
 
   .mb-sm {
     margin-bottom: 1rem;
+  }
+
+  .back-button-container {
+    display: block;
+  }
+}
+
+@media (min-width: 768px) {
+  /* .text-center-sm {
+    text-align: center;
+  }
+
+  .img-thumbnail {
+    margin: 50px;
+    width: 85%;
+    height: 85%;
+  }
+
+  .mt-sm {
+    margin-top: 1.5rem;
+  }
+
+  .mb-sm {
+    margin-bottom: 1rem;
+  } */
+
+  .back-button-container {
+    display: none;
   }
 }

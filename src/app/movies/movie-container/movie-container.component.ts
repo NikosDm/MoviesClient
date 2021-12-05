@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-movie-container',
@@ -8,12 +9,34 @@ import { Component, Input, OnInit } from '@angular/core';
 export class MovieContainerComponent implements OnInit {
   @Input() searchQuery: string;
   selectedMovieID: Number;
+  screenHeight: number;
+  screenWidth: number;
 
-  constructor() {}
+  constructor() {
+    this.getScreenSize();
+  }
 
   ngOnInit(): void {}
 
   handleMovieSelection(selectedMovieID: Number) {
     this.selectedMovieID = selectedMovieID;
+  }
+
+  handleMovieDetailsVisibility() {
+    if (this.screenWidth < 768) {
+      return this.selectedMovieID ? 'block' : 'none';
+    }
+
+    return 'block';
+  }
+
+  @HostListener('window:resize', ['$event'])
+  getScreenSize(event?) {
+    this.screenHeight = window.innerHeight;
+    this.screenWidth = window.innerWidth;
+  }
+
+  handleBackToList() {
+    this.selectedMovieID = null;
   }
 }

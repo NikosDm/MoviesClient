@@ -1,11 +1,12 @@
 import {
   Component,
+  EventEmitter,
   Input,
   OnChanges,
   OnInit,
+  Output,
   SimpleChanges,
 } from '@angular/core';
-import { stringify } from 'querystring';
 import { MovieDetails } from 'src/app/_models/MovieDetails';
 import { ConfigurationService } from 'src/app/_services/configuration.service';
 import { MovieService } from 'src/app/_services/movie.service';
@@ -17,6 +18,7 @@ import { MovieService } from 'src/app/_services/movie.service';
 })
 export class MovieDetailsComponent implements OnInit, OnChanges {
   @Input() selectedMovieID: Number;
+  @Output() backToList = new EventEmitter<any>();
   selectedMovie: MovieDetails;
   productionCountries: string;
   spokenLanguages: string;
@@ -35,7 +37,6 @@ export class MovieDetailsComponent implements OnInit, OnChanges {
         response.production_companies.forEach((x) => {
           x.logo_path = this.GetLogoImageUrl(x.logo_path);
         });
-        this.selectedMovie = response;
         this.productionCountries = response.production_countries
           ?.map(function (c) {
             return c.name;
@@ -50,11 +51,18 @@ export class MovieDetailsComponent implements OnInit, OnChanges {
           (x) => x.iso_639_1 === response.original_language
         ).english_name;
         this.rateFiveStars = (response.vote_average * 5) / 10;
+        this.selectedMovie = response;
       });
+    } else {
+      this.selectedMovie = null;
     }
   }
 
   ngOnInit(): void {}
+
+  backToListEvent() {
+    this.backToList.emit();
+  }
 
   private GetLogoImageUrl(imageId?: string): string | null {
     const baseUrl = this.config.configuration?.images?.base_url;

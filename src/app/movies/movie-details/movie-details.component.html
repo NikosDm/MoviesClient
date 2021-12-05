@@ -1,4 +1,11 @@
 <div class="pt-4" *ngIf="selectedMovie">
+  <div class="pb-4 text-center-sm back-button-container">
+    <a
+      class="movie-title secondary-color pointer-cursor"
+      (click)="backToListEvent()"
+      >Back to movie list</a
+    >
+  </div>
   <div class="pb-4 text-center-sm">
     <a
       class="movie-title"
@@ -67,11 +74,11 @@
         </div>
       </div>
       <div class="row mt-sm">
-        <div class="col-md-3">
+        <div class="col-md-4">
           <strong>Budget: </strong>
           <span>{{ selectedMovie.budget | currency }}</span>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
           <strong>Revenue: </strong>
           <span>{{ selectedMovie.revenue | currency }}</span>
         </div>
