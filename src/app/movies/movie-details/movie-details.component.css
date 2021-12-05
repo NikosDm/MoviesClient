@@ -2,6 +2,14 @@
   cursor: pointer;
 }
 
+.no-border {
+  border: none;
+}
+
+.star-color {
+  color: #fcd303;
+}
+
 .secondary-color {
   color: #716e6a;
 }
@@ -41,6 +49,10 @@
     margin-top: 1.5rem;
   }
 
+  .mt-md {
+    margin-top: 1.75rem;
+  }
+
   .mb-sm {
     margin-bottom: 1rem;
   }
@@ -51,24 +63,6 @@
 }
 
 @media (min-width: 768px) {
-  /* .text-center-sm {
-    text-align: center;
-  }
-
-  .img-thumbnail {
-    margin: 50px;
-    width: 85%;
-    height: 85%;
-  }
-
-  .mt-sm {
-    margin-top: 1.5rem;
-  }
-
-  .mb-sm {
-    margin-bottom: 1rem;
-  } */
-
   .back-button-container {
     display: none;
   }

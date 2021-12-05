@@ -14,6 +14,7 @@ import { MovieDetailsComponent } from './movies/movie-details/movie-details.comp
 import { MovieContainerComponent } from './movies/movie-container/movie-container.component';
 import { MovieListComponent } from './movies/movie-list/movie-list.component';
 import { ApikeyInterceptor } from './_interceptors/apikey.interceptor';
+import { LoadingInterceptor } from './_interceptors/loading.interceptor';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { ApikeyInterceptor } from './_interceptors/apikey.interceptor';
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ApikeyInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent],

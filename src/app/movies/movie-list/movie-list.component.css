@@ -1,3 +1,12 @@
 .pointer-cursor {
   cursor: pointer;
 }
+
+.text-center {
+  text-align: center;
+}
+
+.selected-movie {
+  border: 1px solid #e95420;
+  border-radius: 1rem;
+}

@@ -1,6 +1,10 @@
 <ul class="nav flex-column" *ngIf="paginationResult">
   <li class="nav-item" *ngFor="let movie of paginationResult.results">
-    <a class="nav-link active pointer-cursor" (click)="selectMovie(movie.id)">
+    <a
+      class="nav-link active pointer-cursor"
+      [ngClass]="selectedMovie === movie.id ? 'selected-movie' : ''"
+      (click)="selectMovie(movie.id)"
+    >
       {{ movie.title }}
     </a>
   </li>
@@ -20,4 +24,8 @@
     lastText="&raquo;"
   >
   </pagination>
+</div>
+
+<div class="text-center text-primary" *ngIf="paginationResult">
+  <span>Total movies: {{ paginationResult.total_results }}</span>
 </div>

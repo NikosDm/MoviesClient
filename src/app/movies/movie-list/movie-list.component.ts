@@ -17,6 +17,7 @@ import { MovieService } from 'src/app/_services/movie.service';
 export class MovieListComponent implements OnInit, OnChanges {
   @Output() selectedMovieID = new EventEmitter<any>();
   @Input() searchQuery: string;
+  selectedMovie: number;
   paginationResult: PaginationResult;
 
   constructor(private movieService: MovieService) {}
@@ -34,7 +35,8 @@ export class MovieListComponent implements OnInit, OnChanges {
     else this.loadMovies();
   }
 
-  selectMovie(movieId: Number) {
+  selectMovie(movieId: number) {
+    this.selectedMovie = movieId;
     this.selectedMovieID.emit(movieId);
   }
 
@@ -52,7 +54,7 @@ export class MovieListComponent implements OnInit, OnChanges {
       });
   }
 
-  private loadMovies(page?: Number) {
+  private loadMovies(page?: number) {
     this.movieService.getMovies(page).subscribe((response) => {
       this.paginationResult = response;
     });

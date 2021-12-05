@@ -48,3 +48,28 @@ export interface MovieDetails {
   vote_average: number;
   vote_count: number;
 }
+
+export function getProductionCountriesNames(
+  countries?: ProductionCountry[]
+): string {
+  return countries
+    ?.map(function (c) {
+      return c.name;
+    })
+    .join(', ');
+}
+
+export function getOriginalLanguage(
+  originalLangIso: string,
+  langauges?: SpokenLanguage[]
+): string {
+  return langauges?.find((x) => x.iso_639_1 === originalLangIso).english_name;
+}
+
+export function getSpokenLanguagesNames(langauges?: SpokenLanguage[]): string {
+  return langauges
+    ?.map(function (c) {
+      return c.english_name;
+    })
+    .join(', ');
+}

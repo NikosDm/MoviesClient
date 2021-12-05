@@ -61,19 +61,21 @@
         <strong>Production companies: </strong>
         <div class="row">
           <div
-            class="col-4"
+            class="col-2 card no-border"
             *ngFor="let company of selectedMovie.production_companies"
           >
             <img
               src="{{ company.logo_path || './assets/no-movie-image.png' }}"
               alt="{{ company.name }}"
-              class="company-logo"
+              class="card-img-top company-logo"
             />
-            <span>{{ company.name }}</span>
+            <div clas="card-body">
+              <span>{{ company.name }}</span>
+            </div>
           </div>
         </div>
       </div>
-      <div class="row mt-sm">
+      <div class="row mt-md">
         <div class="col-md-4">
           <strong>Budget: </strong>
           <span>{{ selectedMovie.budget | currency }}</span>
@@ -106,9 +108,32 @@
   </div>
 </div>
 
+<div class="pt-4 text-center" *ngIf="!selectedMovie">
+  <h3>Welcome to Movies Client!</h3>
+  <br />
+  <h5>
+    The page initially loads the most popular movies nowadays, the list of which
+    can be seen on the left of the page.
+  </h5>
+  <br />
+  <h5>
+    To view the details of each movie just click on the name of each movie on
+    the left of the page.
+  </h5>
+  <br />
+  <h5>
+    To search for movies by title, actors' names, category etc., just type on
+    the field on the top of the page and press search.
+  </h5>
+  <br />
+  <h5>
+    In case you click search without typing anything the page will load the most
+    popular movies by derfault.
+  </h5>
+</div>
+
 <ng-template #ratingCustomTemplate let-i="index" let-v="value">
   <i
-    [ngClass]="i < v ? 'fa fa-star fa-2x' : 'fa fa-star-o fa-2x'"
-    [ngStyle]="{ color: i < v ? '#fcd303' : 'none' }"
+    [ngClass]="i < v ? 'fa fa-star fa-2x star-color' : 'fa fa-star-o fa-2x'"
   ></i>
 </ng-template>

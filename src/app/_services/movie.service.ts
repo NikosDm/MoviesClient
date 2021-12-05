@@ -14,7 +14,7 @@ export class MovieService {
 
   constructor(private http: HttpClient) {}
 
-  getMovies(page?: Number): Observable<PaginationResult> {
+  getMovies(page?: number): Observable<PaginationResult> {
     if (!page) page = 1;
 
     return this.http.get<PaginationResult>(
@@ -22,7 +22,7 @@ export class MovieService {
     );
   }
 
-  getMovie(movieID: Number): Observable<MovieDetails> {
+  getMovie(movieID: number): Observable<MovieDetails> {
     return this.http.get<MovieDetails>(`${this.baseUrl}movie/${movieID}`);
   }
 

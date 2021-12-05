@@ -4,7 +4,7 @@
       [ngStyle]="{
         display: screenWidth < 768 && selectedMovieID ? 'none' : 'block'
       }"
-      class="col-md-3 col-lg-2 d-md-block bg-light pt-3"
+      class="col-md-3 col-lg-2 d-md-block bg-light pt-3 movie-list-style"
     >
       <app-movie-list
         (selectedMovieID)="handleMovieSelection($event)"

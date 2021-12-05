@@ -7,7 +7,12 @@ import {
   Output,
   SimpleChanges,
 } from '@angular/core';
-import { MovieDetails } from 'src/app/_models/MovieDetails';
+import {
+  getOriginalLanguage,
+  getProductionCountriesNames,
+  getSpokenLanguagesNames,
+  MovieDetails,
+} from 'src/app/_models/MovieDetails';
 import { ConfigurationService } from 'src/app/_services/configuration.service';
 import { MovieService } from 'src/app/_services/movie.service';
 
@@ -17,7 +22,7 @@ import { MovieService } from 'src/app/_services/movie.service';
   styleUrls: ['./movie-details.component.css'],
 })
 export class MovieDetailsComponent implements OnInit, OnChanges {
-  @Input() selectedMovieID: Number;
+  @Input() selectedMovieID: number;
   @Output() backToList = new EventEmitter<any>();
   selectedMovie: MovieDetails;
   productionCountries: string;
@@ -37,19 +42,16 @@ export class MovieDetailsComponent implements OnInit, OnChanges {
         response.production_companies.forEach((x) => {
           x.logo_path = this.GetLogoImageUrl(x.logo_path);
         });
-        this.productionCountries = response.production_countries
-          ?.map(function (c) {
-            return c.name;
-          })
-          .join(', ');
-        this.spokenLanguages = response.spoken_languages
-          ?.map(function (c) {
-            return c.english_name;
-          })
-          .join(', ');
-        this.originalSpokenLanguage = response.spoken_languages.find(
-          (x) => x.iso_639_1 === response.original_language
-        ).english_name;
+        this.productionCountries = getProductionCountriesNames(
+          response.production_countries
+        );
+        this.spokenLanguages = getSpokenLanguagesNames(
+          response.spoken_languages
+        );
+        this.originalSpokenLanguage = getOriginalLanguage(
+          response.original_language,
+          response.spoken_languages
+        );
         this.rateFiveStars = (response.vote_average * 5) / 10;
         this.selectedMovie = response;
       });

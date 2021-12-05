@@ -7,6 +7,7 @@ import { ConfigurationService } from './_services/configuration.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
+  title = 'MoviesClient';
   searchQuery: string;
 
   constructor(private configuration: ConfigurationService) {}

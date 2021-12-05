@@ -8,7 +8,7 @@ import { HostListener } from '@angular/core';
 })
 export class MovieContainerComponent implements OnInit {
   @Input() searchQuery: string;
-  selectedMovieID: Number;
+  selectedMovieID: number;
   screenHeight: number;
   screenWidth: number;
 
@@ -18,7 +18,7 @@ export class MovieContainerComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  handleMovieSelection(selectedMovieID: Number) {
+  handleMovieSelection(selectedMovieID: number) {
     this.selectedMovieID = selectedMovieID;
   }
 
