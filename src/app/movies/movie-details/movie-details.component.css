@@ -17,3 +17,23 @@
   width: 80px;
   margin: 0.5rem;
 }
+
+@media (max-width: 767px) {
+  .text-center-sm {
+    text-align: center;
+  }
+
+  .img-thumbnail {
+    margin: 50px;
+    width: 85%;
+    height: 85%;
+  }
+
+  .mt-sm {
+    margin-top: 1.5rem;
+  }
+
+  .mb-sm {
+    margin-bottom: 1rem;
+  }
+}

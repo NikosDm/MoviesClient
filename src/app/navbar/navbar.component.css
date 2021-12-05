@@ -1,0 +1,11 @@
+@media (min-width: 511px) {
+  .search-form {
+    width: initial;
+  }
+}
+
+@media (max-width: 510px) {
+  .search-form {
+    width: 100%;
+  }
+}

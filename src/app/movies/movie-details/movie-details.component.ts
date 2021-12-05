@@ -50,8 +50,6 @@ export class MovieDetailsComponent implements OnInit, OnChanges {
           (x) => x.iso_639_1 === response.original_language
         ).english_name;
         this.rateFiveStars = (response.vote_average * 5) / 10;
-
-        debugger;
       });
     }
   }

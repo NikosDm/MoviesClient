@@ -1,16 +1,6 @@
 <div class="container-fluid">
   <div class="row">
-    <div
-      class="
-        col-md-3 col-lg-2
-        d-md-block
-        bg-light
-        sidebar
-        collapse
-        sidebar-sticky
-        pt-3
-      "
-    >
+    <div class="col-md-3 col-lg-2 d-md-block bg-light pt-3">
       <app-movie-list
         (selectedMovieID)="handleMovieSelection($event)"
         [searchQuery]="searchQuery"

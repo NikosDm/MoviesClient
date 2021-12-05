@@ -1,5 +1,5 @@
 <div class="pt-4" *ngIf="selectedMovie">
-  <div class="pb-4">
+  <div class="pb-4 text-center-sm">
     <a
       class="movie-title"
       href="{{ 'https://www.imdb.com/title/' + selectedMovie.imdb_id }}"
@@ -7,14 +7,14 @@
     >
   </div>
   <div class="row">
-    <div class="col-3">
+    <div class="col-md-3">
       <div class="card">
         <img
           src="{{ selectedMovie.poster_path || './assets/no-movie-image.png' }}"
           alt="{{ selectedMovie.title }}"
           class="card-img-top img-thumbnail"
         />
-        <div class="card-body">
+        <div class="card-body text-center-sm">
           <div>
             <strong>Released:</strong>
             <p>{{ selectedMovie.release_date | date: "dd MMM YYYY" }}</p>
@@ -26,17 +26,17 @@
         </div>
       </div>
     </div>
-    <div class="col-9">
-      <div class="mb-3">
-        <strong>Original spoken language: </strong>
-        <span>{{ originalSpokenLanguage }}</span>
-      </div>
-      <div class="mb-3">
+    <div class="col-md-9">
+      <div class="mb-3 text-center-sm mt-sm">
         <span
           class="mr-2 movie-genre"
           *ngFor="let genre of selectedMovie.genres"
           >{{ genre.name }}</span
         >
+      </div>
+      <div class="mb-3 mt-sm">
+        <strong>Original spoken language: </strong>
+        <span>{{ originalSpokenLanguage }}</span>
       </div>
       <div>
         <strong>Overview: </strong>
@@ -66,18 +66,18 @@
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-3">
+      <div class="row mt-sm">
+        <div class="col-md-3">
           <strong>Budget: </strong>
           <span>{{ selectedMovie.budget | currency }}</span>
         </div>
-        <div class="col-3">
+        <div class="col-md-3">
           <strong>Revenue: </strong>
           <span>{{ selectedMovie.revenue | currency }}</span>
         </div>
       </div>
-      <div class="d-flex flex-row-reverse">
-        <div class="col-3">
+      <div class="d-flex flex-row-reverse mt-sm mb-sm">
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12">
           <div class="text-center">
             <strong>{{ rateFiveStars }} / 5</strong>
           </div>
