@@ -1,3 +1,15 @@
 .loading {
   color: white;
 }
+
+@media (max-height: 985px) {
+  .full-screen-height {
+    height: initial;
+  }
+}
+
+@media (min-height: 986px) {
+  .full-screen-height-list {
+    height: 100%;
+  }
+}

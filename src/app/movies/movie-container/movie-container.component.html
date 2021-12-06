@@ -1,10 +1,16 @@
-<div class="container-fluid">
-  <div class="row">
+<div class="container-fluid full-screen-height">
+  <div class="row full-screen-height">
     <div
       [ngStyle]="{
         display: screenWidth < 768 && selectedMovieID ? 'none' : 'block'
       }"
-      class="col-md-3 col-lg-2 d-md-block pt-3 movie-list-style"
+      class="
+        col-md-3 col-lg-2
+        d-md-block
+        pt-3
+        movie-list-style
+        full-screen-height-list
+      "
     >
       <app-movie-list
         (selectedMovieID)="handleMovieSelection($event)"
@@ -16,7 +22,7 @@
       [ngStyle]="{
         display: handleMovieDetailsVisibility()
       }"
-      class="col-md-9 col-lg-10 ml-sm-auto col-lg-10 px-md-4"
+      class="col-md-9 col-lg-10 ml-sm-auto col-lg-10 px-md-4 full-screen-height"
     >
       <app-movie-details
         [selectedMovieID]="selectedMovieID"

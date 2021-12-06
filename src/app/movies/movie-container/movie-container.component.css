@@ -1,4 +1,20 @@
 .movie-list-style {
-  height: 950px;
+  height: max-content;
   background-color: #dad8d6;
+}
+
+.full-screen-height {
+  height: 100%;
+}
+
+@media (max-height: 985px) {
+  .full-screen-height-list {
+    height: max-content;
+  }
+}
+
+@media (min-height: 986px) {
+  .full-screen-height-list {
+    height: 100%;
+  }
 }

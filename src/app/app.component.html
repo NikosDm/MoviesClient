@@ -1,7 +1,9 @@
-<ngx-spinner [fullScreen]="true">
-  <p class="loading">Loading...</p>
-</ngx-spinner>
+<div class="full-screen-height-list">
+  <ngx-spinner [fullScreen]="true">
+    <p class="loading">Loading...</p>
+  </ngx-spinner>
 
-<app-navbar (searchQuery)="handleMovieSearch($event)"></app-navbar>
+  <app-navbar (searchQuery)="handleMovieSearch($event)"></app-navbar>
 
-<app-movie-container [searchQuery]="searchQuery"></app-movie-container>
+  <app-movie-container [searchQuery]="searchQuery"></app-movie-container>
+</div>
