@@ -8,6 +8,7 @@ import { HostListener } from '@angular/core';
 })
 export class MovieContainerComponent implements OnInit {
   @Input() searchQuery: string;
+  moviesLoaded: boolean = false;
   selectedMovieID: number;
   screenHeight: number;
   screenWidth: number;
@@ -20,6 +21,10 @@ export class MovieContainerComponent implements OnInit {
 
   handleMovieSelection(selectedMovieID: number) {
     this.selectedMovieID = selectedMovieID;
+  }
+
+  handleMoviesLoad(loaded: boolean) {
+    this.moviesLoaded = loaded;
   }
 
   handleMovieDetailsVisibility() {

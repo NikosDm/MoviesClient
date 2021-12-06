@@ -6,7 +6,16 @@
   text-align: center;
 }
 
-.selected-movie {
-  border: 1px solid #e95420;
-  border-radius: 1rem;
+@media (max-width: 767px) {
+  .selected-movie {
+    border: none;
+    border-radius: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .selected-movie {
+    border: 1px solid #e95420;
+    border-radius: 1rem;
+  }
 }

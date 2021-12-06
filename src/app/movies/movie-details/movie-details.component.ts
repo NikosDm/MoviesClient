@@ -23,6 +23,7 @@ import { MovieService } from 'src/app/_services/movie.service';
 })
 export class MovieDetailsComponent implements OnInit, OnChanges {
   @Input() selectedMovieID: number;
+  @Input() moviesLoaded: boolean;
   @Output() backToList = new EventEmitter<any>();
   selectedMovie: MovieDetails;
   productionCountries: string;

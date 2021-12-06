@@ -1,5 +1,5 @@
-<div class="pt-4" *ngIf="selectedMovie">
-  <div class="pb-4 text-center-sm back-button-container">
+<div class="pt-4" *ngIf="selectedMovie && moviesLoaded">
+  <div class="pb-4 text-center-sm sm-device-style">
     <a
       class="movie-title secondary-color pointer-cursor"
       (click)="backToListEvent()"
@@ -61,7 +61,7 @@
         <strong>Production companies: </strong>
         <div class="row">
           <div
-            class="col-2 card no-border"
+            class="col-sm-2 card no-border"
             *ngFor="let company of selectedMovie.production_companies"
           >
             <img
@@ -108,7 +108,10 @@
   </div>
 </div>
 
-<div class="pt-4 text-center" *ngIf="!selectedMovie">
+<div
+  class="pt-4 text-center info-page-style"
+  *ngIf="!selectedMovie && moviesLoaded"
+>
   <h3>Welcome to Movies Client!</h3>
   <br />
   <h5>

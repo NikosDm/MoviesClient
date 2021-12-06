@@ -16,6 +16,7 @@ import { MovieService } from 'src/app/_services/movie.service';
 })
 export class MovieListComponent implements OnInit, OnChanges {
   @Output() selectedMovieID = new EventEmitter<any>();
+  @Output() moviesLoaded = new EventEmitter<any>();
   @Input() searchQuery: string;
   selectedMovie: number;
   paginationResult: PaginationResult;
@@ -46,17 +47,19 @@ export class MovieListComponent implements OnInit, OnChanges {
     else this.loadMovies(page);
   }
 
-  searchMovies(page?: number) {
+  private searchMovies(page?: number) {
     this.movieService
       .searchMovies(this.searchQuery, page)
       .subscribe((response) => {
         this.paginationResult = response;
+        this.moviesLoaded.emit(true);
       });
   }
 
   private loadMovies(page?: number) {
     this.movieService.getMovies(page).subscribe((response) => {
       this.paginationResult = response;
+      this.moviesLoaded.emit(true);
     });
   }
 }

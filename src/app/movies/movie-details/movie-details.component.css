@@ -57,13 +57,21 @@
     margin-bottom: 1rem;
   }
 
-  .back-button-container {
+  .sm-device-style {
     display: block;
+  }
+
+  .info-page-style {
+    display: none;
   }
 }
 
 @media (min-width: 768px) {
-  .back-button-container {
+  .sm-device-style {
     display: none;
+  }
+
+  .info-page-style {
+    display: block;
   }
 }
